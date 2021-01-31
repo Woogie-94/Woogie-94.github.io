@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Noto-m";
+  src: url(./font/NotoSansKR-Medium.otf);
+}
+
+@font-face {
+  font-family: "Noto-r";
+  src: url(../font/NotoSansKR-Regular.otf);
+}
+
+$color-twit: #2aa9e0;
+
+body {
+  background: #f5f5f5;
+}

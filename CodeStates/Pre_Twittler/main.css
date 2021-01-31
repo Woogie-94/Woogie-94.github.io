@@ -1,0 +1,128 @@
+@font-face {
+  font-family: "Noto-m";
+  src: url(./font/NotoSansKR-Medium.otf); }
+
+@font-face {
+  font-family: "Noto-r";
+  src: url(../font/NotoSansKR-Regular.otf); }
+
+body {
+  background: #f5f5f5; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  font-family: "Noto-m";
+  padding: 0 50px;
+  background-color: rgba(255, 255, 255, 0.8); }
+  .header .logo__title {
+    font-size: 35px; }
+    .header .logo__title > a {
+      color: #2aa9e0; }
+  .header .login__button {
+    color: #2aa9e0;
+    font-size: 15px;
+    background: #fff; }
+    .header .login__button--off {
+      display: none; }
+    .header .login__button--on {
+      display: block; }
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0;
+  font-family: "Noto-m";
+  color: #262626; }
+  .content .comment {
+    width: 600px; }
+    .content .comment .write {
+      background-color: #2aa9e0;
+      border-radius: 20px 20px 0 0;
+      padding: 20px 40px;
+      box-shadow: 4px 0 10px rgba(0, 0, 0, 0.07); }
+      .content .comment .write__inputWrap {
+        display: flex;
+        justify-content: left;
+        width: 100%; }
+      .content .comment .write__input {
+        width: 100%;
+        height: 50px;
+        padding: 10px;
+        margin-left: 20px;
+        border-radius: 10px; }
+        .content .comment .write__input::placeholder {
+          color: #2aa9e0; }
+      .content .comment .write__btnWrap {
+        display: flex;
+        justify-content: flex-end; }
+      .content .comment .write__btn {
+        width: 75px;
+        height: 25px;
+        font-size: 13px;
+        margin-top: 10px;
+        background-color: #fff;
+        border-radius: 6px; }
+    .content .comment .result {
+      width: 100%;
+      background: #fff;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 4px 0 10px rgba(0, 0, 0, 0.07); }
+      .content .comment .result__item {
+        position: relative;
+        padding: 30px 40px; }
+        .content .comment .result__item::after {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          content: "";
+          display: block;
+          width: 92%;
+          transform: translateX(-50%);
+          border-bottom: 1px solid #aaa; }
+        .content .comment .result__item:last-child::after {
+          border: none; }
+      .content .comment .result__userInfo {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-bottom: 20px; }
+      .content .comment .result__userNameWrap {
+        padding: 0 10px; }
+      .content .comment .result__userName {
+        font-family: "Noto-m";
+        font-size: 15px;
+        margin-bottom: 7px;
+        background: #fff; }
+      .content .comment .result__time {
+        color: #999;
+        font-size: 12px; }
+      .content .comment .result__comment {
+        font-size: 16px; }
+      .content .comment .result__delete {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        transition: 0.3s; }
+        .content .comment .result__delete::after, .content .comment .result__delete::before {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          content: "";
+          display: block;
+          width: 20px;
+          height: 1px;
+          background: #888; }
+        .content .comment .result__delete::after {
+          transform: translate(-50%, -50%) rotate(45deg); }
+        .content .comment .result__delete::before {
+          transform: translate(-50%, -50%) rotate(-45deg); }
+        .content .comment .result__delete:hover {
+          transform: scale(1.2); }

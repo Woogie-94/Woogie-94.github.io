@@ -1,0 +1,21 @@
+{
+  "name": "pre-sprint-twittler",
+  "version": "1.0.0",
+  "main": "data.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codestates/pre-sprint-twittler.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codestates/pre-sprint-twittler/issues"
+  },
+  "homepage": "https://github.com/codestates/pre-sprint-twittler#readme",
+  "description": "",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
