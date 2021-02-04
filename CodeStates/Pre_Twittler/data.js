@@ -1,9 +1,9 @@
 var DATA = [
-  { user: "ingikim", message: "Welcome to Code States #codestates", created_at: "2019-01-03 12:30:20" },
-  { user: "satya", message: "this is test message #pair #programming", created_at: "2019-01-04 18:30:20" },
-  { user: "sundar", message: "code now! #work #hard", created_at: "2019-01-05 07:30:20" },
-  { user: "steve", message: "Stay hungry, and stay foolish", created_at: "2015-01-03 12:30:20" },
-  { user: "tim", message: "education for real world", created_at: "2019-01-04 18:30:20" },
+  { id: 5, user: "ingikim", message: "Welcome to Code States #codestates", created_at: "2019-01-03 12:30:20" },
+  { id: 4, user: "satya", message: "this is test message #pair #programming", created_at: "2019-01-04 18:30:20" },
+  { id: 3, user: "sundar", message: "code now! #work #hard", created_at: "2019-01-05 07:30:20" },
+  { id: 2, user: "steve", message: "Stay hungry, and stay foolish", created_at: "2015-01-03 12:30:20" },
+  { id: 1, user: "tim", message: "education for real world", created_at: "2019-01-04 18:30:20" },
 ];
 
 var randomUser = ["ingikim", "satya", "sundar", "steve", "tim", "jeff"];
@@ -50,5 +50,3 @@ Date.prototype.format = function () {
   var format = [yyyy, month, dd].join("-") + " " + [HH, mm, ss].join(":");
   return format;
 };
-
-con;
