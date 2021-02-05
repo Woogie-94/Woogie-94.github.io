@@ -23,10 +23,7 @@ submitBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const idValue = idInput.value;
 
-  if (idValue.trim() === "") {
-    alert("다시 써");
-    return;
-  }
+  if (idValue.trim() === "") return alert("다시 써");
 
   loginBtn.style.display = "none";
   logoutBtn.style.display = "block";

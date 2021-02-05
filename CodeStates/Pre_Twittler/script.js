@@ -1,9 +1,6 @@
 const writeBtn = document.getElementById("writeBtn");
 const result = document.querySelector(".result");
-
 const idCount = new IdCount();
-
-// local에 data가 없으면, DATA 변수를 담아줌,
 
 //[[[ create comment Tag  ]]]//
 const createTag = (id, name, date, comment) => {
@@ -27,7 +24,7 @@ const createTag = (id, name, date, comment) => {
   </div>
   <div class="result__userNameWrap">
     <button class="result__userName">${name}</button>
-    <p class="result__time">${date}</p>
+    <p class="result__time">${timeStamp(date)}</p>
   </div>
 </div>
 <p class="result__comment">${comment}</p>
@@ -37,15 +34,17 @@ const createTag = (id, name, date, comment) => {
 </button>
 `;
 
-  idCount.increase();
   const itemBox = document.createElement("div");
   itemBox.classList.add("result__item");
-  itemBox.id = idCount.getCount();
   itemBox.innerHTML = tag;
+  itemBox.id = id;
+
+  idCount.increase();
 
   return itemBox;
 };
 
+//[[[ create commentFilter Tag  ]]]//
 const createFilterTag = (id, name, date, comment) => {
   let tag = `
 <div id=${id} class="commentFilter__item">
@@ -83,29 +82,23 @@ const createFilterTag = (id, name, date, comment) => {
 };
 
 //[[[ comment default ]]]//
-DATA.map((el) => {
-  result.prepend(createTag(idCount, el.user, el.created_at, el.message));
+storageDATA.map((el) => {
+  result.prepend(createTag(el.id, el.user, el.created_at, el.message));
 });
 
 //[[[ comment add ]]]//
 writeBtn.addEventListener("click", () => {
   const writeInput = document.querySelector(".write__input");
 
-  if (!isNaN(localStorage.getItem("id"))) {
-    alert("로그인 먼저 해 ㅡㅡ");
-    return;
-  }
-  if (writeInput.value.trim() === "") {
-    alert("댓글 안써??");
-    return;
-  }
+  if (!isNaN(localStorage.getItem("id"))) return alert("로그인 먼저 해 ㅡㅡ");
+  if (writeInput.value.trim() === "") return alert("댓글 안써??");
 
-  const DATAbase = { id: idCount.getCount() + 1, user: localStorage.getItem("id"), message: writeInput.value, created_at: new Date().format() };
+  const baseDATA = { id: idCount.getCount(), user: localStorage.getItem("id"), message: writeInput.value, created_at: new Date() };
+  result.prepend(createTag(idCount.getCount(), baseDATA.user, baseDATA.created_at, baseDATA.message));
+  storageDATA.push(baseDATA);
+  localStorage.setItem("data", JSON.stringify([...storageDATA]));
 
   writeInput.value = "";
-
-  result.prepend(createTag(idCount, DATAbase.user, DATAbase.created_at, DATAbase.message));
-  DATA.push(DATAbase);
 });
 
 //[[[ comment event ]]]//
@@ -118,9 +111,13 @@ result.addEventListener("click", (e) => {
   if (targetClass === "result__delete") {
     result.removeChild(targetParent);
 
-    DATA.map((item, i) => {
-      if (item.id === Number(targetParent.id)) DATA.splice(i, 1);
+    storageDATA.map((item, i) => {
+      if (item.id === Number(targetParent.id)) {
+        storageDATA.splice(i, 1);
+      }
     });
+
+    localStorage.setItem("data", JSON.stringify([...storageDATA]));
   }
 
   //[[ comment filter ]//
@@ -131,7 +128,7 @@ result.addEventListener("click", (e) => {
 
     commentFilter.classList.remove("commentFilter--off");
 
-    const filter = DATA.filter((el) => {
+    const filter = storageDATA.filter((el) => {
       return el.user === target.textContent;
     });
 
@@ -145,24 +142,3 @@ result.addEventListener("click", (e) => {
     });
   }
 });
-
-//[[[ id Counting Function]]]//
-function IdCount() {
-  let count = 0;
-
-  this.increase = () => {
-    return ++count;
-  };
-
-  this.getCount = () => {
-    return count;
-  };
-}
-
-//[[[ id Counting Function 실패작 ]]]//
-// const add = () => {
-//   let count = 0;
-//   return function () {
-//     return ++count;
-//   };
-// };
