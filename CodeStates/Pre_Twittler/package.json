@@ -16,6 +16,7 @@
   "homepage": "https://github.com/codestates/pre-sprint-twittler#readme",
   "description": "",
   "devDependencies": {
+    "moment": "^2.29.1",
     "node-sass": "^5.0.0"
   }
 }

@@ -41,45 +41,55 @@ body {
   font-family: "Noto-m";
   color: #262626;
   padding: 100px 0; }
-  .content .comment {
+  .content .comment,
+  .content .commentFilter {
     width: 600px; }
-    .content .comment .write {
+    .content .comment .write,
+    .content .commentFilter .write {
       background-color: #2aa9e0;
       border-radius: 20px 20px 0 0;
       padding: 20px 40px;
       box-shadow: 4px 0 10px rgba(0, 0, 0, 0.07); }
-      .content .comment .write__inputWrap {
+      .content .comment .write__inputWrap,
+      .content .commentFilter .write__inputWrap {
         display: flex;
         justify-content: left;
         width: 100%; }
-      .content .comment .write__input {
+      .content .comment .write__input,
+      .content .commentFilter .write__input {
         width: 100%;
         height: 50px;
         padding: 10px;
         margin-left: 20px;
         border-radius: 10px; }
-        .content .comment .write__input::placeholder {
+        .content .comment .write__input::placeholder,
+        .content .commentFilter .write__input::placeholder {
           color: #2aa9e0; }
-      .content .comment .write__btnWrap {
+      .content .comment .write__btnWrap,
+      .content .commentFilter .write__btnWrap {
         display: flex;
         justify-content: flex-end; }
-      .content .comment .write__btn {
+      .content .comment .write__btn,
+      .content .commentFilter .write__btn {
         width: 75px;
         height: 25px;
         font-size: 13px;
         margin-top: 10px;
         background-color: #fff;
         border-radius: 6px; }
-    .content .comment .result {
+    .content .comment .result,
+    .content .commentFilter .result {
       width: 100%;
       min-height: 150px;
       background: #fff;
       border-radius: 0 0 20px 20px;
       box-shadow: 4px 0 10px rgba(0, 0, 0, 0.07); }
-      .content .comment .result__item {
+      .content .comment .result__item,
+      .content .commentFilter .result__item {
         position: relative;
         padding: 30px 40px; }
-        .content .comment .result__item::after {
+        .content .comment .result__item::after,
+        .content .commentFilter .result__item::after {
           position: absolute;
           bottom: 0;
           left: 50%;
@@ -88,26 +98,33 @@ body {
           width: 92%;
           transform: translateX(-50%);
           border-bottom: 1px solid #aaa; }
-        .content .comment .result__item:last-child::after {
+        .content .comment .result__item:last-child::after,
+        .content .commentFilter .result__item:last-child::after {
           border: none; }
-      .content .comment .result__userInfo {
+      .content .comment .result__userInfo,
+      .content .commentFilter .result__userInfo {
         display: flex;
         justify-content: left;
         align-items: center;
         margin-bottom: 20px; }
-      .content .comment .result__userNameWrap {
+      .content .comment .result__userNameWrap,
+      .content .commentFilter .result__userNameWrap {
         padding: 0 10px; }
-      .content .comment .result__userName {
+      .content .comment .result__userName,
+      .content .commentFilter .result__userName {
         font-family: "Noto-m";
         font-size: 15px;
         margin-bottom: 7px;
         background: #fff; }
-      .content .comment .result__time {
+      .content .comment .result__time,
+      .content .commentFilter .result__time {
         color: #999;
         font-size: 12px; }
-      .content .comment .result__comment {
+      .content .comment .result__comment,
+      .content .commentFilter .result__comment {
         font-size: 16px; }
-      .content .comment .result__delete {
+      .content .comment .result__delete,
+      .content .commentFilter .result__delete {
         position: absolute;
         top: 30px;
         right: 40px;
@@ -115,7 +132,9 @@ body {
         height: 20px;
         background: #fff;
         transition: 0.3s; }
-        .content .comment .result__delete::after, .content .comment .result__delete::before {
+        .content .comment .result__delete::after, .content .comment .result__delete::before,
+        .content .commentFilter .result__delete::after,
+        .content .commentFilter .result__delete::before {
           position: absolute;
           top: 50%;
           left: 50%;
@@ -124,11 +143,14 @@ body {
           width: 20px;
           height: 1px;
           background: #888; }
-        .content .comment .result__delete::after {
+        .content .comment .result__delete::after,
+        .content .commentFilter .result__delete::after {
           transform: translate(-50%, -50%) rotate(45deg); }
-        .content .comment .result__delete::before {
+        .content .comment .result__delete::before,
+        .content .commentFilter .result__delete::before {
           transform: translate(-50%, -50%) rotate(-45deg); }
-        .content .comment .result__delete:hover {
+        .content .comment .result__delete:hover,
+        .content .commentFilter .result__delete:hover {
           transform: scale(1.2); }
 
 .popup {
@@ -174,79 +196,70 @@ body {
     background: #2aa9e0;
     border-radius: 0 20px 20px 0; }
 
-.commentFilter--on {
+.commentFilter {
   display: flex; }
-
-.commentFilter--off {
-  display: none; }
-
-.commentFilter__wrap {
-  position: absolute;
-  z-index: 10;
-  top: 50%;
-  left: 50%;
-  width: 600px;
-  background: #fff;
-  border-radius: 20px;
-  transform: translate(-50%, -50%); }
-
-.commentFilter__item {
-  position: relative;
-  padding: 30px 40px; }
-  .commentFilter__item::after {
+  .commentFilter--off {
+    display: none; }
+  .commentFilter__wrap {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    content: "";
-    display: block;
-    width: 92%;
-    transform: translateX(-50%);
-    border-bottom: 1px solid #aaa; }
-  .commentFilter__item:last-child::after {
-    border: none; }
-
-.commentFilter__userInfo {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  margin-bottom: 20px; }
-
-.commentFilter__userNameWrap {
-  padding: 0 10px; }
-
-.commentFilter__userName {
-  font-family: "Noto-m";
-  font-size: 15px;
-  margin-bottom: 7px;
-  background: #fff; }
-
-.commentFilter__time {
-  color: #999;
-  font-size: 12px; }
-
-.commentFilter__comment {
-  font-size: 16px; }
-
-.commentFilter__delete {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  width: 20px;
-  height: 20px;
-  background: #fff;
-  transition: 0.3s; }
-  .commentFilter__delete::after, .commentFilter__delete::before {
-    position: absolute;
+    z-index: 10;
     top: 50%;
     left: 50%;
-    content: "";
-    display: block;
+    width: 600px;
+    background: #fff;
+    border-radius: 20px;
+    transform: translate(-50%, -50%); }
+  .commentFilter__item {
+    position: relative;
+    padding: 30px 40px; }
+    .commentFilter__item::after {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      content: "";
+      display: block;
+      width: 92%;
+      transform: translateX(-50%);
+      border-bottom: 1px solid #aaa; }
+    .commentFilter__item:last-child::after {
+      border: none; }
+  .commentFilter__userInfo {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 20px; }
+  .commentFilter__userNameWrap {
+    padding: 0 10px; }
+  .commentFilter__userName {
+    font-family: "Noto-m";
+    font-size: 15px;
+    margin-bottom: 7px;
+    background: #fff; }
+  .commentFilter__time {
+    color: #999;
+    font-size: 12px; }
+  .commentFilter__comment {
+    font-size: 16px; }
+  .commentFilter__delete {
+    position: absolute;
+    top: 30px;
+    right: 40px;
     width: 20px;
-    height: 1px;
-    background: #888; }
-  .commentFilter__delete::after {
-    transform: translate(-50%, -50%) rotate(45deg); }
-  .commentFilter__delete::before {
-    transform: translate(-50%, -50%) rotate(-45deg); }
-  .commentFilter__delete:hover {
-    transform: scale(1.2); }
+    height: 20px;
+    background: #fff;
+    transition: 0.3s; }
+    .commentFilter__delete::after, .commentFilter__delete::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      content: "";
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: #888; }
+    .commentFilter__delete::after {
+      transform: translate(-50%, -50%) rotate(45deg); }
+    .commentFilter__delete::before {
+      transform: translate(-50%, -50%) rotate(-45deg); }
+    .commentFilter__delete:hover {
+      transform: scale(1.2); }

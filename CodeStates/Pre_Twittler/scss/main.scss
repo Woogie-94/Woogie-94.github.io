@@ -44,7 +44,8 @@
   color: #262626;
   padding: 100px 0;
 
-  .comment {
+  .comment,
+  .commentFilter {
     width: 600px;
 
     .write {
@@ -232,9 +233,8 @@
 }
 
 .commentFilter {
-  &--on {
-    display: flex;
-  }
+  display: flex;
+
   &--off {
     display: none;
   }

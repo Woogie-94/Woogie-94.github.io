@@ -23,17 +23,17 @@ submitBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const idValue = idInput.value;
 
-  loginBtn.style.display = "none";
-  logoutBtn.style.display = "block";
-
   if (idValue.trim() === "") {
     alert("다시 써");
     return;
   }
 
+  loginBtn.style.display = "none";
+  logoutBtn.style.display = "block";
+
   loginSwitch();
   localStorage.setItem("id", idValue);
-  idValue = "";
+  idInput.value = "";
 });
 
 logoutBtn.addEventListener("click", function () {
