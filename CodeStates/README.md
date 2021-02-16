@@ -6,6 +6,10 @@
 
 <br />
 
-> Pre Week2
+> Pre Week 2,3
 
 [Twittler](https://Woogie-94.github.io/CodeStates/Pre_Twittler)
+
+> Pre Week 4
+
+[Weather API](https://Woogie-94.github.io/CodeStates/Pre_Weather_api)
