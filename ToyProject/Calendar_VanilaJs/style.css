@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+  margin: 0; }
+
+button,
+input,
+textarea {
+  border: none;
+  outline: none;
+  background-color: none; }
+
+ul,
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: #fff; }
+
+@font-face {
+  font-family: NotoKR_L;
+  src: url(./font/NotoSerifKR-Light.otf); }
+
+@font-face {
+  font-family: QM;
+  src: url(./font/Quicksand-Medium.ttf); }
+
+.calendar {
+  width: 80%;
+  height: 90%;
+  color: #292929;
+  font-family: "Noto-L";
+  background-color: #fcfbf8;
+  border-radius: 5px; }
+  .calendar__week {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    height: 14.28571%;
+    border-bottom: 1px solid #999; }
+    .calendar__week:last-child {
+      border: none; }
+    .calendar__week .calendar_month {
+      font-family: NotoKR_L;
+      font-size: 1.6rem;
+      text-align: right;
+      padding-top: 37px; }
+      .calendar__week .calendar_month__yy {
+        padding-right: 20px; }
+      .calendar__week .calendar_month__mm {
+        margin-top: -5px; }
+  .calendar__day {
+    width: 12.5%;
+    height: 100%;
+    padding: 5px 10px;
+    border-right: 1px solid #999; }
+    .calendar__day:last-child {
+      border: none; }
+  .calendar__dayname {
+    font-size: 0.9rem;
+    text-align: left;
+    font-family: QM;
+    padding-top: 85px; }
+
+.day_data_components {
+  cursor: pointer; }
+  .day_data_components--on:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: 0.3s; }
+  .day_data_components--off {
+    color: #999;
+    cursor: inherit; }
+
+.calendar_btn {
+  width: 5%;
+  height: 100vh; }
+  .calendar_btn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: 0.3s; }
+
+body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #999; }
