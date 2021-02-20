@@ -23,7 +23,7 @@ function renderWeatherData(data) {
 
 function getData(name) {
   const API_KEY = "522f563b88b45d9f1003bda006f894b4";
-  let API_URL_OpenWeatherMap = `http://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${API_KEY}`;
+  let API_URL_OpenWeatherMap = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${API_KEY}`;
 
   fetch(API_URL_OpenWeatherMap)
     .then(function (res) {
