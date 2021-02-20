@@ -3,16 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./service/calendar.js"></script>
     <title>Calendar</title>
   </head>
   <body>
-    <div>
-      <button class="prev_btn">prev</button>
-      <button class="next_btn">next</button>
+    <div class="calendar_btn calendar_btn__prev"></div>
+    <div class="calendar">
+      <div class="calendar__week">
+        <div class="calendar__day calendar_month">
+          <p class="calendar_month__yy"></p>
+          <p class="calendar_month__mm"></p>
+        </div>
+        <div class="calendar__day calendar__dayname">Sunday</div>
+        <div class="calendar__day calendar__dayname">Monday</div>
+        <div class="calendar__day calendar__dayname">Tuesday</div>
+        <div class="calendar__day calendar__dayname">Wednesyday</div>
+        <div class="calendar__day calendar__dayname">Thursday</div>
+        <div class="calendar__day calendar__dayname">Friday</div>
+        <div class="calendar__day calendar__dayname">Saturday</div>
+      </div>
     </div>
-    <div class="calendar"></div>
+    <div class="calendar_btn calendar_btn__next"></div>
   </body>
   <script src="./script.js"></script>
 </html>
