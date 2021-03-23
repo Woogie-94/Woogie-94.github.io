@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@800;900&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        margin: 0;
+      }
+
+      #particles-js {
+        /* display: none; */
+        position: absolute;
+        height: 100%;
+        width: 100%;
+      }
+
+      .text {
+        position: absolute;
+        z-index: 100;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "Montserrat", sans-serif;
+        color: #292929;
+        opacity: 0.9;
+        font-size: 90px;
+        font-weight: 900;
+      }
+
+      .text p:nth-of-type(2) {
+        margin-top: 10px;
+        margin-left: 70px;
+      }
+
+      .img {
+        display: inline-block;
+        height: 100px;
+        z-index: 100;
+      }
+    </style>
+    <style>
+      body {
+        overflow: hidden;
+      }
+      .slide {
+        display: flex;
+        width: 400%;
+        height: 100vh;
+        transition: 0.5s;
+      }
+      .slide_item {
+        width: 33.33333%;
+        height: 100%;
+      }
+      .slide_2 {
+        background: red;
+      }
+      .slide_3 {
+        background: blue;
+      }
+    </style>
+    <style>
+      .slide_2 {
+        overflow: hidden;
+        position: relative;
+        background: #00b6f1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .step2_text {
+        position: relative;
+        z-index: 10;
+        font-family: "Gothic A1", sans-serif;
+        color: #292929;
+        font-size: 80px;
+        font-weight: 900;
+      }
+
+      .man {
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: translateY(-50%);
+        width: 200px;
+        height: 360px;
+        transition: 30s linear;
+      }
+
+      .man.on {
+        left: 110%;
+      }
+
+      .head {
+        width: 70px;
+        height: 70px;
+        background-color: #fff;
+        border-radius: 50%;
+        animation-name: body;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+
+      .body {
+        height: 144px;
+        width: 62px;
+        background-color: #fff;
+        border-radius: 100% 20% 0 0;
+        transform: skewX(-2deg);
+        position: relative;
+        left: -50px;
+        animation-name: body;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+
+      .foot {
+        width: 40px;
+        height: 14px;
+        border-radius: 10px 80% 4px 4px;
+        transform: skewX(5deg);
+        background-color: #fff;
+        display: inline-block;
+        animation-name: foot;
+        animation-duration: 1.8s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+      .foot:last-child {
+        margin-left: -40px;
+        animation-delay: 0.9s;
+      }
+
+      .feet {
+        text-align: left;
+        position: relative;
+        top: 100px;
+        left: -66px;
+      }
+      .feet:before {
+        width: 120px;
+        height: 8px;
+        border-radius: 50%;
+        content: "";
+        background: rgba(#000, 0.1);
+        position: absolute;
+        bottom: -2px;
+        left: -16px;
+        animation-name: shadow;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+
+      @keyframes foot {
+        20% {
+          transform: translate3d(34px, -16px, 0) rotate(4deg);
+        }
+        26% {
+          transform: translate3d(34px, -10px, 4) rotate(0deg);
+        }
+        40% {
+          transform: translate3d(56px, -6px, 0) rotate(-6deg);
+        }
+        44% {
+          transform: translate3d(56px, 0, 0) rotate(0deg);
+        }
+      }
+
+      @keyframes body {
+        25% {
+          transform: translateY(5px);
+        }
+        50% {
+          transform: translateY(0);
+        }
+        75% {
+          transform: translateY(5px);
+        }
+      }
+
+      @keyframes shadow {
+        25% {
+          transform: scale(1.1);
+        }
+
+        75% {
+          transform: scale(0.96);
+        }
+      }
+    </style>
+    <style>
+      .slide_3 {
+        position: relative;
+        background: #eee;
+      }
+      .slide_3_text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "Gothic A1", sans-serif;
+        color: #292929;
+        font-size: 80px;
+        font-weight: 900;
+      }
+      .slide_3_link {
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-decoration: none;
+        font-family: "Gothic A1", sans-serif;
+        color: #292929;
+        font-size: 50px;
+        font-weight: 900;
+        transition: 1.6s 1s;
+      }
+
+      .on .til {
+        color: #0053da;
+        opacity: 1;
+        top: 30%;
+        left: 20%;
+      }
+      .on .algo {
+        color: #fe2020;
+        opacity: 1;
+        top: 20%;
+        left: 70%;
+      }
+      .on .toy {
+        color: #ffdb45;
+        opacity: 1;
+        top: 80%;
+        left: 40%;
+      }
+      .on .study {
+        color: #46715e;
+        opacity: 1;
+        top: 70%;
+        left: 80%;
+      }
+      .slide_3_link:hover {
+        transform: translate(-50%, -50%) scale(1.2);
+        transition: 0.5s 0s;
+      }
+
+      .slide_4 {
+        overflow: hidden;
+        position: relative;
+        background: #fff;
+        padding-top: 10px;
+      }
+
+      .slide_4_text {
+        position: absolute;
+
+        z-index: 10;
+        top: 49%;
+        left: 50%;
+        width: 100%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        font-family: "Gothic A1", sans-serif;
+        color: #292929;
+        font-size: 90px;
+        font-weight: 900;
+      }
+
+      .bg_text {
+        opacity: 0.2;
+        font-family: "Gothic A1", sans-serif;
+        color: #292929;
+        font-size: 100px;
+      }
+
+      .on .bg_text:nth-of-type(2) {
+        margin-left: 500px;
+      }
+      .on .bg_text:nth-of-type(3) {
+        left: 0;
+        margin-left: 100px;
+      }
+      .on .bg_text:nth-of-type(4) {
+        margin-left: 900px;
+      }
+      .on .bg_text:nth-of-type(6) {
+        margin-left: 300px;
+      }
+      .on .bg_text:nth-of-type(7) {
+        left: 0;
+        margin-left: 800px;
+      }
+      .on .bg_text:nth-of-type(8) {
+        margin-left: 500px;
+      }
+
+      .bg_text:hover {
+        opacity: 0.8;
+        transition: 0.3s;
+      }
+
+      .off {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide">
+      <div class="slide_1 slide_item">
+        <div id="particles-js">
+          <div class="text">
+            <p>FRONT-END</p>
+            <p>DEVELOPER</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide_2 slide_item">
+        <div class="man">
+          <div class="head"></div>
+          <div class="body"></div>
+          <div class="feet">
+            <div class="foot"></div>
+            <div class="foot"></div>
+          </div>
+        </div>
+        <p class="step2_text on">코드스테이츠에 온 이유</p>
+      </div>
+      <div class="slide_3 slide_item">
+        <p class="slide_3_text">저는 이렇게 공부해요</p>
+        <a href="https://github.com/Woogie-94" class="slide_3_link til">TIL</a>
+        <a href="https://programmers.co.kr/learn/challenges" class="slide_3_link algo">Algorithm</a>
+        <a href="http://woogie-home.com/main/" class="slide_3_link toy">Toy</a>
+        <a href="https://github.com/useonglee/Algorithm_Study" class="slide_3_link study">Study</a>
+      </div>
+      <div class="slide_4 slide_item">
+        <p class="slide_4_text">이런 개발자가 되고 싶어요</p>
+        <p class="bg_text">"기본에 충실한"</p>
+        <p class="bg_text">"뛰어난 커뮤니케이션"</p>
+        <p class="bg_text">"지속적인 학습"</p>
+        <p class="bg_text off">.</p>
+        <p class="bg_text">"끊임없는 성실, 노력"</p>
+        <p class="bg_text">"개발이 재미있는"</p>
+        <p class="bg_text">"같이 일하고 싶은"</p>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script src="./index.js"></script>
+</html>
