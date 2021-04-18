@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { RootStateOrAny, useSelector } from "react-redux";
 import styled from "styled-components";
-import { DaleNoteState } from "../../action/todo";
 
 import CalendarInfo from "../../service/calendar";
 import Week from "../week/Week";
 import DaleNote from "../dalenote/Dalenote";
+import { DaleNoteState } from "../../action/todo";
 
 const CalendarContainer = styled.div`
   display: flex;
@@ -37,12 +37,14 @@ const DayContainer = styled.div`
 `;
 
 const Calendar = () => {
+  console.log("Calendar");
   const [changeMonthNumber, setChangeMonthNumber] = useState<number>(0);
-  const { noteOpenKey, daleNoteReducer }: { noteOpenKey: string; daleNoteReducer: DaleNoteState[] } = useSelector((state: RootStateOrAny) => state);
-
   const calendarInfo = new CalendarInfo(changeMonthNumber);
   const { targetDate, calendarArr } = calendarInfo;
   const dayNameList: string[] = ["Sunday", "Monday", "Tuseday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  const { daleNoteReducer, noteOpenKeyReducer } = useSelector((state: RootStateOrAny) => state);
+  const daleNoteData = daleNoteReducer.filter((data: DaleNoteState) => data.id === noteOpenKeyReducer);
 
   const onNextMonth = (): void => setChangeMonthNumber(changeMonthNumber + 1);
   const onPrevMonth = (): void => setChangeMonthNumber(changeMonthNumber - 1);
@@ -62,7 +64,7 @@ const Calendar = () => {
         })}
       </CalendarContent>
       <button onClick={onNextMonth}>next</button>
-      {noteOpenKey && <DaleNote daleData={daleNoteReducer} noteOpenKey={noteOpenKey} />}
+      {noteOpenKeyReducer && <DaleNote daleNoteData={daleNoteData[0]} />}
     </CalendarContainer>
   );
 };

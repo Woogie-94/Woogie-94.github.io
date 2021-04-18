@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
-import { noteOpenKey, daleNoteReducer } from "./todo";
+import { noteOpenKeyReducer, daleNoteReducer } from "./todo";
 
-export const TodoReducers = combineReducers({ daleNoteReducer, noteOpenKey });
+export const TodoReducers = combineReducers({ daleNoteReducer, noteOpenKeyReducer });

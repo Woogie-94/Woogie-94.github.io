@@ -21,9 +21,9 @@ const DayContainer = styled.div`
 const Week = ({ week, WeekContainer }: WeekProps) => {
   return (
     <WeekContainer>
-      <Day DayContainer={DayContainer} />
+      <DayContainer />
       {week.map((day, idx) => (
-        <Day key={idx} dayDate={day} DayContainer={DayContainer} />
+        <Day key={idx} date={day} DayContainer={DayContainer} />
       ))}
     </WeekContainer>
   );

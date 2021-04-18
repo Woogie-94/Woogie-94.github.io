@@ -8,13 +8,15 @@ type DeleteDaleAction = ReturnType<typeof daleDataActions.delete>;
 type ChangeDaleAction = ReturnType<typeof daleDataActions.change>;
 
 export type DaleDataActionType = AddDaleAction | UpdaeDaleAction | DeleteDaleAction | ChangeDaleAction;
+
+interface Todo {
+  content: string;
+  checked: boolean;
+}
+
 export interface DaleNoteState {
   id: string;
-  todos: {
-    // todoId: number;
-    content: string;
-    checked: boolean;
-  }[];
+  todos: Todo[];
   date: Moment;
 }
 

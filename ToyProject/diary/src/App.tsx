@@ -1,13 +1,13 @@
 import React from "react";
 import Calendar from "./components/calendar/Calendar";
-import { ThemeProvider } from "styled-components";
-import thema from "./thema";
+import { GlobalStyle } from "./style/global";
 
 function App() {
   return (
-    <ThemeProvider theme={thema}>
+    <>
+      <GlobalStyle />
       <Calendar />
-    </ThemeProvider>
+    </>
   );
 }
 
