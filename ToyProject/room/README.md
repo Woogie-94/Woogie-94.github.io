@@ -1,4 +1,4 @@
-![](./image/readme.png)
+![](./image/readme.gif)
 
 # 직방 클론
 
